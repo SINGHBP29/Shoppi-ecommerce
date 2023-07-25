@@ -1,0 +1,26 @@
+{%extends 'authentication/basic.html' %}
+{% load static %}
+{% block title %} Search result {%endblock%}
+{% block body %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                {% for prod in product %}
+                <div class="col-sm-4 text-center mb-4 hover-shadow">
+                    <a href="{% url 'home' prod.id%}" class="btn">
+                        <div>
+                            <img src="{{ prod.image.url }}" wodth="300px" height="200px" />
+                            <div class="fw-bold">{{prod.productname}}</div>
+                            <div class="fw-bold text-danger">
+                                Rs.{{prod.prize}} /-
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

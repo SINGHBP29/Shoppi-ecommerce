@@ -1,0 +1,27 @@
+{% extends 'authentication/basic.html' %}
+{% load static %}
+{% block title %} Profile {% endblock title %}
+{% block body %}
+  <div class="container my-5">
+    <div class="row">
+        <h3>Welcome {{ request.user.username }}</h3>
+        {% csrf_token %}
+        {% for fm in form %}
+        <div class="col-sm-6">
+            <div class="card m-2">
+                <div class="card-body">
+        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+        <br>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{% url 'address' %}" type ='button' class="btn btn-danger"
+            >Back</a>
+        </div>
+        </div>
+    </form>
+</div>
+<div>
+{% endblock %}

@@ -1,0 +1,493 @@
+
+{% extends 'authentication/basic.html' %}
+
+ {% block title %} Home {% endblock %}
+
+ {% block body %}  
+ {% load static %}
+    <main>
+        <div id="coverPage" class="row-3 container-fluid" style="background-image: url({% static 'img/img2.jpg' %});">
+            <div class="col-2 ">
+                <h1 class="text ">
+                    Let's begin <br> our Shopping Spree with 
+                </h1>
+                <h2>
+                    Shopee!
+                </h2>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br>
+            </div>
+        </div>
+        
+        <!--featured categories-->
+        <div class="categories">
+            <div class="row big-container">
+                <div class="small-container ">
+                    <div class="row">
+                        <div class="col-3 categories-items" href="ProductDetails/">
+                            <img src={% static "img/bic.png" %}  alt="">
+                        </div>
+                        <div class="col-3 categories-items">
+                            <img src={% static "img/mattress.png" %} alt="">
+                        </div>
+                        <div class="col-3 categories-items">
+                            <img src={% static "img/cooler.png" %} alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--some important Product -->
+        <div class="container" xmlns:data="http://www.w3.org/1999/xhtml">
+            <div id="demo" class="carousel slide my-3" data-ride="carousel">'
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+            {% comment %} {% for i in range %}
+               <li data-target="#demo" data-slide-to="{{i}}" ></li>
+            {% endfor %} {% endcomment %}
+        </ul>
+        
+        <!--        slideshow starts here-->
+        {% comment %} {% for i in product|slice:"1:" %} {% endcomment %}
+        {% comment %} <div class="container"> {% endcomment %}
+           {% for prod in product %} 
+           {% comment %} <form action="" method=""> {% endcomment %}
+             {% comment %} <div class="container" > {% endcomment %}
+                <div>
+                <a href="{% url 'ProductDetails' prod.id %}" class="btn">
+                    <div>
+                        <img src="{{prod.image.url}}" alt="" width="300px" height="200px" />
+                        <div class="fw-bold">{{prod.productname}} </div>
+                        <div class="fw-bold text-danger">
+                            Rs.{{prod.prize}}
+                        </div>
+                    </div>
+                </a>
+            </div>
+                {% comment %} </form> {% endcomment %}
+            </div>
+           
+              {% comment %} <form action="add_to_cart/" clssssssass="d-inline">
+                <input type="hidden" name="prod_id" value={{prod.id}}/>
+               <button type="submit" class="btn btn-primary shadow px-5 py-2">Add to Cart</button>
+             </form>
+             <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-4">Buy Now</a>
+             {% if 'wishlist' %}
+             <a pid={{product.id}} class="minus-wishlist btn btn-danger shadow px-5 py-2 ms-4"><i class="fas fa-heart fa-lg"></i></a>
+            {% else %}
+            <a pid={{product.id}} class="plus-wishlist btn btn-danger shadow px-5 py-2 ms-4"><i class="fas fa-heart fa-lg"></i></a>
+            {% endif %} {% endcomment %}
+            {% comment %} <h5 class="card-title">{{prod.productname}}</h5> {% endcomment %}
+           {% endfor %} 
+       {% comment %} </div> {% endcomment %}
+
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                    
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="card" style="width: 18rem;">
+                        <img src='{% static "uploadimage/jeans.jpg" %}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Jeans</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                            <button id="cart" href="get_cart" class="btn btn-primary cart">Add To Cart</button>
+
+                        </div>
+                      </div>
+                    </div>
+        
+                    
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="card" style="width: 18rem;">
+                        <img src='{% static "uploadimage/kurta_pajams.jpg" %}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Kurta Pajams</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                            <button id="cart" href="get_cart" class="btn btn-primary cart">Add To Cart</button>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="card" style="width: 18rem;">
+                          <img src='{% static "uploadimage/shirts.jpg" %}' class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Shirts</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                              card's content.</p>
+                              <button id="cart" href="get_cart" class="btn btn-primary cart">Add To Cart</button>
+
+                          </div>
+                        </div>
+                      </div>
+        
+                      
+                      <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="card" style="width: 18rem;">
+                          <img src='{% static "uploadimage/watch.jpg" %}' class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Watch</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                              card's content.</p>
+                              <button href="get_cart" class="btn btn-primary cart">Add To Cart</button>
+
+                          </div>
+                        </div>
+                      </div>
+        
+                      
+                      <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="card" style="width: 18rem;">
+                          <img src='{% static "uploadimage/usha_mixer.png" %}' class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Usha Mixer</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                              card's content.</p>
+                              <button type="button" href="get_cart" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                              "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                              augue laoreet rutrum faucibus.">Add to Cart </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xs-3 col-sm-3 col-md-3">
+                        <div class="card" style="width: 18rem;">
+                          <img src='{% static "uploadimage/test.jpg" %}' class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Test</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                              card's content.</p>
+                              <button href="get_cart" type="button" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                              "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                              augue laoreet rutrum faucibus.">Add to Cart </button>
+                          </div>
+                        </div>
+                      </div>
+          
+        
+                      
+
+        
+                    {% comment %} {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+                     </div><div class="carousel-item"> 
+                    {% endif%} 
+        
+                    {% endfor %}  {% endcomment %}
+              </div>
+        
+              </div>
+                </div>
+        
+        <a class="carousel-control-prev " href="#demo" role="button" data-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        
+        </div>
+
+        {% comment %} {% for i in range %} 
+        <!--featured products-->
+        {% for i in product|slice:"1:" %} {% endcomment %}
+        <div class="container">
+            <h2 class="title">Featured Products</h2>
+            <div class="row Products">
+                <div class="col-4 p-1 Product-items">
+                    <img src={% static "img/bicycle.png" %} alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                  <p>  <a type='submit' href="get_cart" </a>Rs.500</p>
+                        <button type="button" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                        "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                        augue laoreet rutrum faucibus.">Add to Cart </button>
+                </div>
+               {% comment %} {% if for loop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %} {% endcomment %}
+                <div class="col-4 p-1 Product-items">
+                    {% comment %} {% endif %} {% endcomment %}
+                    <img src={% static "img/bicycle.png" %} alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                  
+                    <p><a type='submit' href="AddToCart/"> Rs.500 </a></p>
+                    <button type="button" href="get_cart" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                    "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                    augue laoreet rutrum faucibus.">Add to Cart </button>
+                </div>
+                <div class="col-4 p-1 Product-items">
+                    <img src={% static "img/bicycle.png"%} alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p><a type='submit' href="AddToCart/"> Rs.500 </a></p>
+                    <button href="get_cart" type="button" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                    "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                    augue laoreet rutrum faucibus.">Add to Cart </button>
+                </div>
+                <div class="col-4 p-1 Product-items">
+                    <img src={%static "img/bicycle.png" %} alt="">
+                    {% comment %} <h4>{{product.0.product_name}}</h4> {% endcomment %}
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-regular fa-star"></i></i></span>
+                    </div>
+                    <p><a type='submit' href="get_cart"> Rs.500 </a></p>
+                    <button type="button" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                    "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                    augue laoreet rutrum faucibus.">Add to Cart </button>
+                </div>
+            </div>
+        </div>
+            {% comment %} {% endfor %}
+        {% endfor %} {% endcomment %}
+        <!--latest products-->
+        
+        <div class="container">
+            <h2 class="title">Latest Products</h2>
+            <div class="row"id=" Products">
+                <div class="col-4 p-1 Product-items">
+                    <img src={% static "img/bicycle.png" %} alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <button type="button" href="get_cart" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                    "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                    augue laoreet rutrum faucibus.">Add to Cart </button>
+                </div>
+                <div class="col-4 p-1 Product-items">
+                    <img src={% static "img/bicycle.png" %} alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p><a type='submit' href="AddToCart/"> Rs.500 </a></p>
+                    <a href="get_cart" class="btn btn-primary cart">Add to cart</a>
+                </div>
+                <div class="col-4 p-1 Product-items">
+                    <img src={% static "img/bicycle.png"  %} alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p><a type='submit' href="AddToCart/"> Rs.500 </a></p>
+                    <button type="button" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                    "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                    augue laoreet rutrum faucibus.">Add to Cart </button>
+                </div>
+                <div class="col-4 p-1 Product-items">
+                    <img src={% static "img/bicycle.png" %} alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-regular fa-star"></i></i></span>
+                    </div>
+                     <p><a type='submit' href="AddToCart/"> Rs.500 </a></p>
+                     <button href="get_cart" type="button" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                     "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                     augue laoreet rutrum faucibus.">Add to Cart </button>
+                </div>
+            </div>
+        </div>
+ <!--another row of prod-->
+        <div class="container">
+
+            <div class="row Productss">
+                <div class="col-4 p-1 Product-items">
+                    <img src="https://source.unsplash.com/172x142.11/?bicycle" alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p><a type='submit' href="AddToCart/"> Rs.500 </a></p>
+                     <button type="button" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement=
+                            "right" data-html="true" data-content="Vivamus sagittis lacus vel 
+                            augue laoreet rutrum faucibus.">Add to Cart </button>
+                </div>
+                <div class="col-4 p-1 Product-items">
+                    <img src="https://source.unsplash.com/172x142.11/?bicycle" alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p><a type='submit' href="AddToCart/"> Rs.500 </a></p>
+                </div>
+                
+                <div class="col-4 p-1 Product-items">
+                    <img src="https://source.unsplash.com/172x142.11/?bicycle" alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <p><a type='submit' href="AddToCart/"> Rs.500 </a></p>
+                    <a href="get_cart" class="btn btn-primary cart">Add to cart</a>
+                </div>
+                <div class="col-4 p-1 Product-items">
+                    <img src="https://source.unsplash.com/172x142.11/?bicycle" alt="">
+                    <h4>Bicycle</h4>
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-regular fa-star"></i></i></span>
+                    </div>
+                    <p><a type='submit' href="AddToCart/"> Rs.500 </a></p>
+                    <button href="get_cart" class="btn btn-primary cart">Add to cart</button>
+                </div>
+            </div>
+        </div>
+
+<!--offer-->
+
+
+            <div id="offer" class="row m-0">
+                <div class="col-2" id="offer-items">
+                    <img class="offer-img" src="https://source.unsplash.com/5488x4244/?coding">
+                </div>
+                <div class="col-2" id="offer-items">
+                    <p>Exclusively Available on Shopee!</p>
+                    <h1>Brand New Bike</h1>
+                    <small>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, exercitationem nemo in vero reiciendis aliquam ipsum porro necessitatibus suscipit veritatis officiis blanditiis odit. Officia, fugit.
+                    </small>
+                    <a href="tesonomial/" class="btn">Buy Now &#8594</a>
+                    
+                </div>
+            </div>
+
+            
+<!--testimonials-->
+    <div id="testimonial">
+        <div class="small-container">
+            <div class="row my-4 mx-0">
+                <div class="col-3" id="testimonial-items">
+                    <span><i class="fa-solid fa-quote-left"></i></span>
+                    <p>Lorem ipsum, dolor sit a delectus corrupti, sed eos cupiditate officia? Rem laudantium dignissimos explicabo qui atque illum aliquid ipsum accusamus! Deserunt assumenda unde nisi quas sunt repudiandae magnam cum?</p>
+                
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <img src="https://source.unsplash.com/172x120.11/?human" alt="">
+                    <h3>Shawn Mendes</h3>
+                </div>
+                <div class="col-3" id="testimonial-items">
+                    <span><i class="fa-solid fa-quote-left"></i></span>
+                    <p>Lorem ipsum, dolor sit a delectus corrupti, sed eos cupiditate officia? Rem laudantium dignissimos explicabo qui atque illum aliquid ipsum accusamus! Deserunt assumenda unde nisi quas sunt repudiandae magnam cum?</p>
+                
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <img src="https://source.unsplash.com/172x120.11/?human" alt="">
+                    <h3>Shawn Mendes</h3>
+                </div>
+                <div class="col-3" id="testimonial-items">
+                    <span><i class="fa-solid fa-quote-left"></i></span>
+                    <p>Lorem ipsum, dolor sit a delectus corrupti, sed eos cupiditate officia? Rem laudantium dignissimos explicabo qui atque illum aliquid ipsum accusamus! Deserunt assumenda unde nisi quas sunt repudiandae magnam cum?</p>
+                
+                    <div class="rating">
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i><i class="fa-solid fa-star"></i></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                    </div>
+                    <img src="https://source.unsplash.com/172x120.11/?human" alt="">
+                    <h3>Shawn Mendes</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    <!--footer-->
+
+{% comment %} console.log('working');
+if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+else
+{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+console.log('clicked');
+var idstr = this.id.toString();
+console.log(idstr);
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+});
+</script> {% endcomment %}
+
+
+
+{% endblock %}
