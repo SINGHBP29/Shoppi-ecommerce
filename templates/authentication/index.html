@@ -40,13 +40,15 @@
         </div>
         <!--some important Product -->
         <div class="container" xmlns:data="http://www.w3.org/1999/xhtml">
-            <div id="demo" class="carousel slide my-3" data-ride="carousel">'
+            <div id="demo" class="carousel slide my-3" data-ride="carousel">
                 <ul class="carousel-indicators">
                     <li data-target="#demo" data-slide-to="0" class="active"></li>
-            {% comment %} {% for i in range %}
+           {% comment %} {% for i in range %}
                <li data-target="#demo" data-slide-to="{{i}}" ></li>
-            {% endfor %} {% endcomment %}
-        </ul>
+            {% endfor %}  {% endcomment %}
+        {% comment %} </ul> {% endcomment %}
+                {% comment %} </ul> {% endcomment %}
+           
         
         <!--        slideshow starts here-->
         {% comment %} {% for i in product|slice:"1:" %} {% endcomment %}
@@ -80,9 +82,13 @@
             {% endif %} {% endcomment %}
             {% comment %} <h5 class="card-title">{{prod.productname}}</h5> {% endcomment %}
            {% endfor %} 
+            </ul>
+        </div>
+    </div>
+            {% comment %} </div> {% endcomment %}
        {% comment %} </div> {% endcomment %}
 
-              <div class="carousel-inner">
+              {% comment %} <div class="carousel-inner">
                 <div class="carousel-item active">
                     
                     <div class="col-xs-3 col-sm-3 col-md-3">
@@ -169,7 +175,7 @@
                       </div>
           
         
-                      
+                       {% endcomment %}
 
         
                     {% comment %} {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}

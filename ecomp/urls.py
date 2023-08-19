@@ -19,8 +19,9 @@ from django.urls import include, path
 #import authentication.views
 
 urlpatterns = [
-    path('', include('Dell.urls')),
+    
     path('admin/', admin.site.urls),
+    path('', include('Dell.urls')),
     path("", include("allauth.urls")), # Most Important for Login through Google
    # path('',authentication.views.login, name="login"),
 ]

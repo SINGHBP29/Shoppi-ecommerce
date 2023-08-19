@@ -1,4 +1,4 @@
-
+from django.contrib import admin
 from django.urls import path
 from . import views
 from django.conf import settings
@@ -9,6 +9,7 @@ from django.contrib.auth import views as auth_view
 #import authentication.views
 
 urlpatterns = [
+    path('admin/',admin.site.urls),
     path("", views.home, name="home"),
     path("login/",views.login, name="Login"),
     # path("register/",views.register, name="Register"),
@@ -68,4 +69,7 @@ urlpatterns = [
     # path('password-reset/done/',auth_view.PasswordResetView.as_view(template_name="authent)
     
     
-] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+ ] 
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

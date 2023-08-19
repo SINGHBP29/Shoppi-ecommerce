@@ -238,7 +238,7 @@ def add_to_cart(request):
     product = Product.objects.get(id=product_id)
     # product = get_object_or_404(Product,id=product_id)
     # cart = Cart.objects.create(user=user, product=product)
-    Cart(user=user.id,product=product).save()
+    Cart(user=user,product=product).save()
     # cart.save()
     # return redirect(reverse("cart"))
     return redirect('/cart')
@@ -251,7 +251,7 @@ def show_cart(request):
     # cart = Cart.objects.create(user=request.user.id, product_id=product.id)
     amount = 0
     for p in cart:
-        values = p.quantiq * p.product.prize
+        values = p.quantity * p.product.prize
         amount = amount * values
     totalamount = amount + 40
     return render(request,'authentication/cart.html',locals())
